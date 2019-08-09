@@ -15,7 +15,8 @@ GPIO.setwarnings(False)
 GPIO.setup(7, GPIO.OUT)
 
 #PiCamera specific setup
-camconf = json.load("camera_conf.json")
+with open('camera_conf.json') as json:
+	camconf = json.load(json)
 
 picam = PiCamera()
 picam.resolution = tuple(camconf["resolution"])

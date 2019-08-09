@@ -45,7 +45,7 @@ for fr in picam.capture_continuous(rawStream, format="bgr", use_video_port=True)
     cv2.accumulateWeighted(noiseRemovedFrame, avgBackgroundFrame, 0.5)
     frameDelta = cv2.absdiff(noiseRemovedFrame, cv2.convertScaleAbs(avgBackgroundFrame))
 
-    thresh = cv2.threshold(frameDelta, camconf["delta_thresh"]. 255. cv2.THRESH_BINARY)[1]
+    thresh = cv2.threshold(frameDelta, camconf["delta_thresh"], 255, cv2.THRESH_BINARY)[1]
     thresh = cv2.dilate(thresh, None, iterations=2)
     contours = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = imutils.grab_contours(contours)

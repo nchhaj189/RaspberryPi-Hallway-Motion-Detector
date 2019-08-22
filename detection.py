@@ -79,5 +79,4 @@ for fr in picam.capture_continuous(rawStream, format="bgr", use_video_port=True)
             GPIO.cleanup()
             break
     rawStream.truncate(0)
-    print(peopleCounter)
 GPIO.cleanup()
